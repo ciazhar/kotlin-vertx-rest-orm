@@ -31,6 +31,18 @@ group 'com.ciazhar.vertx.rest.orm'
 
 mainClassName = 'com.ciazhar.vertx.rest.orm.Application'
 
+//create a single Jar with all dependencies
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': 1.0,
+                'Main-Class': 'com.ciazhar.vertx.rest.orm.Application'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
 repositories {
     jcenter()
 }
