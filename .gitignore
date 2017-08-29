@@ -1,0 +1,9 @@
+/.vertx/
+/build/
+/.idea/
+/logs/
+/gradle/
+/.gradle/
+
+/gradlew
+/gradlew.bat
